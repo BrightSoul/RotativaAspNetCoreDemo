@@ -1,0 +1,33 @@
+﻿@model CountryPopulationViewModel
+@{
+    ViewData["Title"] = "World population";
+    if (Model.ForExport)
+    {
+        Layout = "_ExportLayout";
+    }
+}
+
+<div>
+    <img src="~/globe.png" height="100">
+    <h1>World population
+    @if (!Model.ForExport)
+    {
+        <a asp-route-export="1" class="btn btn-primary ml-3" target="_blank">Export to PDF</a>
+    }
+    </h1>
+    <table class="table">
+        <thead>
+            <tr><th>Country</th><th>Population</th><th>Percentage</th></tr>
+        </thead>
+        <tbody>
+        @foreach(CountryPopulation result in Model.Results)
+        {
+            <tr>
+                <td>@result.Country</td>
+                <td>@result.Population.ToString("G")</td>
+                <td>@result.Percentage.ToString("P")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
