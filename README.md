@@ -12,9 +12,9 @@ You can find configuration instructions on the [GitHub repository of Rotativa.As
 The important parts of this project are in file [Startup.cs](Startup.cs), where Rotativa is configured...
 
 ```csharp
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnv)
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
-  RotativaConfiguration.Setup(hostingEnv, "../Rotativa");
+  RotativaConfiguration.Setup(env.ContentRootPath);
   // ...
 }
 ```

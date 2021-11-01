@@ -24,9 +24,9 @@ namespace RotativaAspNetCoreDemo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnv)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            RotativaConfiguration.Setup(hostingEnv, "../Rotativa");
+            RotativaConfiguration.Setup(env.ContentRootPath);
             
             if (env.IsDevelopment())
             {
